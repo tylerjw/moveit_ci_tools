@@ -10,7 +10,10 @@ This has the same output as `colcon list`.  It depends on `colcon` and `git` bei
 ### Use with ament_clang_tidy
 
 [This PR](https://github.com/ament/ament_lint/pull/287) adds the `--packages_select` argument to ament_clang_tidy to enable you to use it with `colcon_list_packages_changed_since` for running clang-tidy over packages changed since some point.
-For example if you have a PR against the master branch of moveit you would do this to do an ament-tidy test over just the packages in moveit your change affects:
+
+The PR was merged but ament_lint has not yet been released with this new feature.  As a result you'll need a local build of ament_lint sourced.
+
+This package can be used with ament_clang_tidy to run clang_tidy for only packages that have changed since some branch.  For example if you have a PR against the master branch of moveit you would do this to do an ament-tidy test over just the packages in moveit your change affects:
 
 ```bash
 packages_with_changes=$(colcon_list_packages_changed_since --names-only src/moveit master)
